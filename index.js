@@ -7,10 +7,12 @@ var h = function (type, props, children) {
       dom.appendChild(document.createTextNode(children));
     } else {
       for (let child of children) {
-        if (typeof child != "string") {
-          dom.appendChild(child);
-        } else {
-          dom.appendChild(document.createTextNode(child));
+        if (child) {
+          if (typeof child != "string") {
+            dom.appendChild(child);
+          } else {
+            dom.appendChild(document.createTextNode(child));
+          }
         }
       }
     }
@@ -118,6 +120,17 @@ var app = new Rue({
           ])
         ]),
 
+        data.output
+          ? h('div', { style: 'text-align: center; margin-bottom: 10px' }, [
+              h('a', {
+                className: 'input-choose-btn',
+                onmouseup: function() {
+                  methods.copyToClipboard.bind(instance)();
+                }
+              }, 'Copy to Clipboard')
+            ])
+          : undefined,
+
         h('div', { className: 'base64-output' }, data.output)
       ])
     ]);
@@ -136,7 +149,13 @@ var app = new Rue({
 
         fileReader.readAsDataURL(file);
       }
+    },
 
+    copyToClipboard () {
+      var range = document.createRange();
+      range.selectNode(document.querySelector('.base64-output'));
+      window.getSelection().addRange(range);
+      document.execCommand("copy");
     },
   },
 });
