@@ -29,6 +29,7 @@ body {
 .drag-drop-area .input-icon {
   font-size: 48px;
   margin-top: -10px;
+  margin-bottom: 20px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
