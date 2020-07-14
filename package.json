@@ -1,17 +1,13 @@
 {
   "name": "image_base64",
   "version": "1.0.0",
-  "main": "main.js",
   "author": "Anh Mac <anhmv91@gmail.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
-  },
-  "alias": {
-    "snabbdom": "snabbdom"
   }
 }
