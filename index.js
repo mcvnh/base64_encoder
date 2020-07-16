@@ -94,14 +94,12 @@ var app = new Rue({
       h('h1', null, 'Base64 Image Encoder'),
       h('div', null, [
         h('input', {
-          style: 'z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;',
+          style: 'z-index: 999; opacity: 0; width: 320px; height: 160px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;',
           name: 'file',
           id: "filer_input2",
           type: 'file',
           accept: 'image/*',
-          onchange: function(event) {
-            methods.onChange.bind(instance)(event);
-          }
+          onchange: methods.onChange.bind(instance)
         }),
 
         h('div', { className: 'drag-drop-area' }, [
@@ -124,9 +122,7 @@ var app = new Rue({
           ? h('div', { style: 'text-align: center; margin-bottom: 10px' }, [
               h('a', {
                 className: 'input-choose-btn',
-                onmouseup: function() {
-                  methods.copyToClipboard.bind(instance)();
-                }
+                onmouseup: methods.copyToClipboard
               }, 'Copy to Clipboard')
             ])
           : undefined,
